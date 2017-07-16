@@ -1,0 +1,21 @@
+label {
+  display: inline-block;
+  width: 10ex;
+}
+svg {
+  background-color: none;
+  margin-bottom: 1ex;
+  margin-top: 1em;
+}
+span.display_number {
+  display: inline-block;
+  font-family: sans-serif;
+  text-align: left;
+  width: 4ex;
+}
+#frame_control {
+  float: right;
+}
+#square_control {
+  display: inline-block;
+}

@@ -1,0 +1,78 @@
+<!-- Exhibit color contrast effects.
+Also, experiment with the HTML5 range control. -->
+<!doctype html>
+<head>
+  <title>Color contrast</title>
+  
+  <!-- Google font(s)
+  Must precede 'index.css'. -->
+  <!-- Headers. -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  
+  <link rel=stylesheet type="text/css" href="index.css"/>
+  <link rel=stylesheet type="text/css" href="project.css"/> 
+</head>
+
+<svg width='900' height='300' viewBox='0 0 300 100'>
+  <rect id='square' x='15' y='20' width='60' height='60'/>
+  <!-- A frame around the inner square.
+  To create a hole, as opposed to filling the entire square, it is critical that the inner portion of the path circle the inner rectangle in the direction opposite to the direction of the outer portion of the path. In the present implementation the outer portion of the path travels clockwise and the inner portion of the path travels counterclockwise. -->
+  <path id='frame' d='M 0 5 l 90 0 l 0 90 l -90 0 l 0 -90 l 15 15 l 0 60 l 60 0 l 0 -60 l -60 0 z'/>
+<!--  <path id='frame' d='M 5 5 l 90 0 l 0 90 l -90 0 l 0 -90 l 15 15 l 0 60 l 60 0 l 0 -60 l -60 0 z'/>-->
+  <use xlink:href='#square' x='105'/>
+  <use xlink:href='#frame' x='210'/>
+</svg>
+
+<form id='square_control'>
+  <span class='form_title'>Square color control</span>
+  <label for='ctrlRed'>Red:</label>
+  <span class='display_number ctrlRed'>0</span>
+  <input type='range' name='ctrlRed' value='0' min='0' max='255'/>
+  <br>
+  <label for='ctrlGreen'>Green:</label>
+  <span class='display_number ctrlGreen'>0</span>
+  <input type='range' name='ctrlGreen' value='0' min='0' max='255'/>
+  <br>
+  <label for='ctrlBlue'>Blue:</label>
+  <span class='display_number ctrlBlue'>0</span>
+  <input type='range' name='ctrlBlue' value='0' min='0' max='255'/>
+  <br>
+  <label for='ctrlAlpha'>Opacity:</label>
+  <span class='display_number ctrlAlpha'>0</span>
+  <input type='range' name='ctrlAlpha' value='0' min='0.0' max='1.0' step='0.01'/>
+</form>
+<form id='frame_control'>
+  <span class='form_title'>Frame color control</span>
+  <label for='ctrlRed'>Red:</label>
+  <span class='display_number ctrlRed'>0</span>
+  <input type='range' name='ctrlRed' value='0' min='0' max='255'/>
+  <br>
+  <label for='ctrlGreen'>Green:</label>
+  <span class='display_number ctrlGreen'>0</span>
+  <input type='range' name='ctrlGreen' value='0' min='0' max='255'/>
+  <br>
+  <label for='ctrlBlue'>Blue:</label>
+  <span class='display_number ctrlBlue'>0</span>
+  <input type='range' name='ctrlBlue' value='0' min='0' max='255'/>
+  <br>
+  <label for='ctrlAlpha'>Opacity:</label>
+  <span class='display_number ctrlAlpha'>0</span>
+  <input type='range' name='ctrlAlpha' value='0' min='0.0' max='1.0' step='0.01'/>
+</form>
+
+<script src="project.js"></script>
+
+<h1>Color contrast</h1>
+<p id='pub'>Published: 2017-07-15</p>
+<p>When this page first comes up it displays two identical green squares, with the left hand square surrounded by a red frame. If your visual system is like mine, the square on the left appears lighter or brighter than the square without the frame; however, I can assure you they are identical. You can use the controls to change the color of the left hand square, and the square in the middle will change along with it. The two squares are always identical.</p>
+<p>In addition, when the page first displays the frame on the left may appear lighter than the frame on the right. Despite any perceived differences, the frame on the left and the frame on the right are identical and remain so when you adjust the color of the frame.</p>
+<p>The perception of a color is not absolute but is affected by adjacent colors. This is important to keep in mind when designing a web page or other visual display. A design might specify regions of a particular color at different locations on the page; however, the visual impression created by a color may change depending on the color or colors nearby.</p>
+<h2>Be parsimonious</h2>
+<p>Strong colors engender strong contrast effects. Unless they are very sure of what they are doing designers should use strong colors sparingly. You might come back at me and note that Google's logo involves multiple bright colors. In fact, it uses all four primary colors: red, green, yellow, and blue.</p>
+<img src="Google.PNG" height='300'/>
+<p>I would counter that Google's logo places these colors in a thin, austere font on a broad white background. Each letter sits in its own space, and the logo is the only color on the page, and the only strong design element on the page. There is no chance that the colorful logo will upset the color scheme. Incidentally, Google's use of a broad white background is highly radical if you compare it to almost every other website. You need to go to the Museum of Modern Art in New York City to see similarly masterful uses of empty space. In other words, Google's home page is a work of art, and a masterpiece.</p>
+<p>In contrast to Google, Amazon deploys colors that are dark and drab. Very likely this is deliberate as it prevents the website from competing with the products on offer. Amazon's home page is crowded and aggressive. Perhaps its designers are trying to emulate the feel of a large, busy bazaar.</p>
+<img src="Amazon.PNG" height=300/>
+<p>It is remarkable that Google's and Amazon's home pages are esthetic polar opposites, yet each works.</p>
+
+<p id=copyright>Copyright (C) 2017, John Van Praag</p>
