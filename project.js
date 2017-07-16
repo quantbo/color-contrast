@@ -39,25 +39,17 @@ var square_control = document.getElementById('square_control');
 var frame_control = document.getElementById('frame_control');
 function init_control(control, color) {
   var inputs = control.getElementsByTagName('input');
-  inputs.ctrlRed.value = color.red;
-  inputs.ctrlGreen.value = color.green;
-  inputs.ctrlBlue.value = color.blue;
-  inputs.ctrlAlpha.value = color.alpha;
-  control.getElementsByClassName('ctrlRed')[0].innerHTML = color.red;
-  control.getElementsByClassName('ctrlGreen')[0].innerHTML = color.green;
-  control.getElementsByClassName('ctrlBlue')[0].innerHTML = color.blue;
-  control.getElementsByClassName('ctrlAlpha')[0].innerHTML = color.alpha;
+  inputs.red.value = color.red;
+  inputs.green.value = color.green;
+  inputs.blue.value = color.blue;
+  inputs.alpha.value = color.alpha;
+  control.getElementsByClassName('red')[0].innerHTML = color.red;
+  control.getElementsByClassName('green')[0].innerHTML = color.green;
+  control.getElementsByClassName('blue')[0].innerHTML = color.blue;
+  control.getElementsByClassName('alpha')[0].innerHTML = color.alpha;
 }
 init_control(square_control, color.square);
 init_control(frame_control, color.frame);
-
-//Map control names to color names.
-var mapc = {
-  'ctrlRed': 'red',
-  'ctrlGreen': 'green',
-  'ctrlBlue': 'blue',
-  'ctrlAlpha': 'alpha'
-}
 
 //Update color when slider is moved.
 function update(event) {
@@ -66,10 +58,10 @@ function update(event) {
   var value = event.target.value;
   //Change the color.
   if (parent.id == 'frame_control') {
-    color.frame[mapc[name]] = value;
+    color.frame[name] = value;
     frame.style.fill = rgba(color.frame);      
   } else {
-    color.square[mapc[name]] = value;
+    color.square[name] = value;
     square.style.fill = rgba(color.square);
   }
   //Change the associated label.
